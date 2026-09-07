@@ -2,6 +2,8 @@
 
 API de aluguel de conteúdos corrigida a partir do projeto recebido, mantendo Spring Boot, Spring Data JPA, os endpoints e as dependências originais.
 
+Repositório público: [Brunoxfx/CP4-POO](https://github.com/Brunoxfx/CP4-POO).
+
 ## Identificação
 
 **Grupo:** A preencher pelo grupo.
@@ -173,7 +175,8 @@ Revisão integral do PDF e nova execução em 07/09/2026: [relatório de confer�
 - [ ] Revisar as reflexões com as palavras e a compreensão do grupo.
 - [ ] Validar conexão, persistência e contrato no Oracle FIAP.
 - [ ] Conferir o play no Eclipse, sem erros de inicialização.
-- [ ] Criar e publicar repositório **público** `cp4-bughunt-<nome-do-grupo>`.
+- [x] Publicar o projeto e o histórico no repositório **público** [Brunoxfx/CP4-POO](https://github.com/Brunoxfx/CP4-POO), indicado pelo grupo.
+- [ ] Adequar o nome do repositório ao padrão `cp4-bughunt-<nome-do-grupo>` exigido no PDF.
 - [ ] Entregar o mesmo link no Teams para todos os integrantes.
 
-A publicação aguarda o nome do grupo e acesso à conta GitHub. Oracle e Eclipse não foram apresentados como validados: a verificação desta execução utilizou Java/Maven e H2. Os itens pendentes precisam ser concluídos antes da entrega acadêmica.
+A publicação no GitHub foi realizada em 07/09/2026, com o histórico original de correções preservado. O nome atual do repositório é `CP4-POO`; a adequação ao padrão do PDF depende da definição do nome do grupo. Oracle e Eclipse continuam pendentes: os testes realizados utilizaram Java/Maven e H2. Os itens desmarcados precisam ser concluídos antes da entrega acadêmica. O relatório de revisão registra a situação anterior à publicação.
