@@ -7,5 +7,7 @@ package br.com.fiap.streamfiap.model;
  */
 public interface Promocionavel {
 
+    double DESCONTO_PROMOCIONAL = 0.20;
+
     double aplicarPromocao(double preco);
 }

@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "conteudos")
 public abstract class Conteudo {
 
+    protected static final double PRECO_BASE_ALUGUEL = 9.90;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,7 +32,7 @@ public abstract class Conteudo {
     }
 
     public double calcularPrecoAluguel() {
-        return 9.90;
+        return PRECO_BASE_ALUGUEL;
     }
 
     public double calcularPrecoPromocional() {
