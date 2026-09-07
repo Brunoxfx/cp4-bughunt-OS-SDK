@@ -187,7 +187,7 @@ Revisão integral do PDF e nova execução em 07/09/2026: [relatório de confer�
 - [x] Definir o nome do grupo: OS-SDK.
 - [ ] Revisar as reflexões com as palavras e a compreensão do grupo.
 - [ ] Validar conexão, persistência e contrato no Oracle FIAP.
-- [ ] Instalar o Eclipse, importar como Maven e conferir o play sem erros de inicialização (o grupo informou que o Eclipse não está instalado neste computador).
+- [ ] Instalar o Eclipse, importar como Maven e conferir o play sem erros de inicialização.
 - [x] Publicar o projeto e o histórico no repositório **público** [Brunoxfx/cp4-bughunt-OS-SDK](https://github.com/Brunoxfx/cp4-bughunt-OS-SDK).
 - [x] Adequar o nome do repositório ao padrão `cp4-bughunt-<nome-do-grupo>` exigido no PDF.
 - [ ] Entregar o mesmo link no Teams para todos os integrantes.
