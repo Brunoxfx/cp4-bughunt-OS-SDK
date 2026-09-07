@@ -2,11 +2,11 @@
 
 API de aluguel de conteúdos corrigida a partir do projeto recebido, mantendo Spring Boot, Spring Data JPA, os endpoints e as dependências originais.
 
-Repositório público: [Brunoxfx/CP4-POO](https://github.com/Brunoxfx/CP4-POO).
+Repositório público: [Brunoxfx/cp4-bughunt-OS-SDK](https://github.com/Brunoxfx/cp4-bughunt-OS-SDK).
 
 ## Identificação
 
-**Grupo:** A preencher pelo grupo.
+**Grupo:** OS-SDK.
 
 | Integrante | RM | Turma |
 |---|---|---|
@@ -171,12 +171,12 @@ Revisão integral do PDF e nova execução em 07/09/2026: [relatório de confer�
 - [x] Tabelas dos achados e seis respostas de reflexão preenchidas.
 - [x] Compilação, empacotamento e contrato testados com H2.
 - [x] Preencher integrantes, RMs e turma.
-- [ ] Definir o nome do grupo.
+- [x] Definir o nome do grupo: OS-SDK.
 - [ ] Revisar as reflexões com as palavras e a compreensão do grupo.
 - [ ] Validar conexão, persistência e contrato no Oracle FIAP.
 - [ ] Conferir o play no Eclipse, sem erros de inicialização.
-- [x] Publicar o projeto e o histórico no repositório **público** [Brunoxfx/CP4-POO](https://github.com/Brunoxfx/CP4-POO), indicado pelo grupo.
-- [ ] Adequar o nome do repositório ao padrão `cp4-bughunt-<nome-do-grupo>` exigido no PDF.
+- [x] Publicar o projeto e o histórico no repositório **público** [Brunoxfx/cp4-bughunt-OS-SDK](https://github.com/Brunoxfx/cp4-bughunt-OS-SDK).
+- [x] Adequar o nome do repositório ao padrão `cp4-bughunt-<nome-do-grupo>` exigido no PDF.
 - [ ] Entregar o mesmo link no Teams para todos os integrantes.
 
-A publicação no GitHub foi realizada em 07/09/2026, com o histórico original de correções preservado. O nome atual do repositório é `CP4-POO`; a adequação ao padrão do PDF depende da definição do nome do grupo. Oracle e Eclipse continuam pendentes: os testes realizados utilizaram Java/Maven e H2. Os itens desmarcados precisam ser concluídos antes da entrega acadêmica. O relatório de revisão registra a situação anterior à publicação.
+A publicação no GitHub foi realizada em 07/09/2026, com o histórico original de correções preservado. O repositório foi renomeado para `cp4-bughunt-OS-SDK`, seguindo o padrão do PDF e o nome do grupo. Oracle e Eclipse continuam pendentes: os testes realizados utilizaram Java/Maven e H2. Os itens desmarcados precisam ser concluídos antes da entrega acadêmica. O relatório de revisão registra a situação anterior à publicação.
