@@ -1,0 +1,13 @@
+{
+  "origem": "Console do Eclipse, configuracao StreamFIAP-Oracle",
+  "mensagens": [
+    "2026-09-07T18:14:02.832-03:00  INFO 30940 --- [streamfiap] [           main] b.c.f.streamfiap.StreamFiapApplication   : Starting StreamFiapApplication using Java 17.0.18 with PID 30940",
+    "2026-09-07T18:14:12.709-03:00  INFO 30940 --- [streamfiap] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'",
+    "2026-09-07T18:14:12.714-03:00  INFO 30940 --- [streamfiap] [           main] b.c.f.streamfiap.StreamFiapApplication   : Started StreamFiapApplication in 10.331 seconds (process running for 10.73)"
+  ],
+  "erros": 0,
+  "banco": "Oracle FIAP",
+  "conteudos_persistidos_conferidos": 24,
+  "usuarios_persistidos_conferidos": 15,
+  "resultado": "APROVADO"
+}

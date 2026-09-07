@@ -121,19 +121,21 @@ A principal dificuldade foi distinguir bugs de suas consequências: a falha de g
 
 ## Resultados da validação
 
-A compilação e o empacotamento foram concluídos com Java 17 e Maven. O JAR foi iniciado com H2, mantendo o `pom.xml` e as dependências originais.
+A compilação e o empacotamento foram concluídos com Java 17 e Maven. O contrato foi validado com H2 e Oracle FIAP, mantendo o `pom.xml` e as dependências originais. A aplicação também foi iniciada pelo Eclipse com Java 17 e conexão ao Oracle.
 
 | Verificação | Resultado |
 |---|---|
 | Compilação e empacotamento | BUILD SUCCESS |
 | Inicialização do JAR com H2 | Aprovada |
 | Testes diretos do model | 40 verificações aprovadas |
-| Cenários HTTP da API | 13 grupos aprovados |
-| Registros da execução | 133 registros, nenhuma falha |
+| Cenários HTTP da API | 13 grupos aprovados em H2 e em Oracle |
+| Persistência no Oracle após reiniciar a API | 24 conteúdos e 15 usuários conferidos |
+| Inicialização pelo Eclipse com Oracle | Aprovada, sem erros de inicialização |
+| Registros das execuções | H2: 133; Oracle: 166; nenhuma falha |
 
-Os registros incluem requisições, respostas e resultados de testes; não correspondem a 133 testes independentes. As evidências abrangem o ambiente H2, sem validação autenticada no Oracle FIAP ou confirmação de execução pelo Eclipse.
+Os registros incluem requisições, respostas e resultados de testes; não representam a quantidade de testes independentes. As tabelas foram criadas no Oracle e os dados permaneceram consistentes após reiniciar a API e após a execução pelo Eclipse.
 
-Evidências: [comportamento original](verificacao/evidencias/original.json), [validação após as correções](verificacao/evidencias/conferencia-aulas-2026-09-07.json) e [resultados por correção](verificacao/evidencias/por-correcao.json).
+Evidências: [comportamento original](verificacao/evidencias/original.json), [validação com H2](verificacao/evidencias/conferencia-aulas-2026-09-07.json), [validação com Oracle](verificacao/evidencias/oracle-final.json), [execução pelo Eclipse](verificacao/evidencias/eclipse-oracle-final.json) e [resultados por correção](verificacao/evidencias/por-correcao.json).
 
 ## Checklist de entrega
 
@@ -146,7 +148,7 @@ Evidências: [comportamento original](verificacao/evidencias/original.json), [va
 - [x] Arquivo de configuração versionado com `SEU_RM` e `SUA_SENHA`, sem credenciais reais.
 - [x] Compilação, empacotamento e testes do contrato aprovados com H2.
 - [x] Repositório público com o nome `cp4-bughunt-OS-SDK`.
-- [ ] Validação do contrato e da persistência no Oracle FIAP.
-- [ ] Inicialização pelo Eclipse confirmada sem erros.
+- [x] Validação do contrato e da persistência no Oracle FIAP.
+- [x] Inicialização pelo Eclipse confirmada sem erros.
 - [ ] Revisão final das reflexões pelos integrantes.
 - [ ] Link do repositório entregue no Teams.
