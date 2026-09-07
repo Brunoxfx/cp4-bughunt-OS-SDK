@@ -25,7 +25,10 @@ parser.add_argument("--label", default="verificacao")
 parser.add_argument("--compile", action="store_true")
 parser.add_argument("--jar", action="store_true", help="Executa a API a partir do JAR empacotado")
 parser.add_argument("--oracle", action="store_true", help="Pede credenciais locais e testa no Oracle FIAP; cria dados de teste persistentes")
+parser.add_argument("--oracle-env", action="store_true", help="Com --oracle, usa credenciais fornecidas no ambiente do processo")
 args = parser.parse_args()
+if args.oracle_env and not args.oracle:
+    parser.error("--oracle-env exige --oracle")
 ITEMS = [f"bug{i:02}" for i in range(1, 13)] + ["contrato"] if "all" in args.items else args.items
 if any(item not in [f"bug{i:02}" for i in range(1, 13)] + ["contrato"] for item in ITEMS):
     parser.error("Item desconhecido; use all, bug01 a bug12 ou contrato")
@@ -39,17 +42,21 @@ created_users = set()
 child_env = os.environ.copy()
 ddl_mode = "create-drop"
 if args.oracle:
-    if not sys.stdin.isatty():
+    if not args.oracle_env and not sys.stdin.isatty():
         parser.error("Execute --oracle em um terminal interativo para digitar a senha oculta")
     print("Oracle FIAP: esta execucao cria dados de teste persistentes identificados por " + prefix)
     print("Tabelas existentes serao apenas validadas; nenhum dado existente sera apagado.")
-    try:
-        child_env["SPRING_DATASOURCE_USERNAME"] = input("Usuario Oracle fornecido pela FIAP: ").strip()
-        with warnings.catch_warnings():
-            warnings.simplefilter("error", getpass.GetPassWarning)
-            child_env["SPRING_DATASOURCE_PASSWORD"] = getpass.getpass("Senha Oracle (oculta): ")
-    except (EOFError, KeyboardInterrupt, getpass.GetPassWarning):
-        parser.error("Entrada cancelada ou terminal sem suporte a senha oculta; nenhuma conexao foi tentada")
+    if args.oracle_env:
+        if not all(child_env.get(key, "").strip() for key in ("SPRING_DATASOURCE_USERNAME", "SPRING_DATASOURCE_PASSWORD")):
+            parser.error("Credenciais ausentes no ambiente; nenhuma conexao foi tentada")
+    else:
+        try:
+            child_env["SPRING_DATASOURCE_USERNAME"] = input("Usuario Oracle fornecido pela FIAP: ").strip()
+            with warnings.catch_warnings():
+                warnings.simplefilter("error", getpass.GetPassWarning)
+                child_env["SPRING_DATASOURCE_PASSWORD"] = getpass.getpass("Senha Oracle (oculta): ")
+        except (EOFError, KeyboardInterrupt, getpass.GetPassWarning):
+            parser.error("Entrada cancelada ou terminal sem suporte a senha oculta; nenhuma conexao foi tentada")
     subprocess.run([str(JAVA_HOME / "bin" / "javac.exe"), "--release", "17", "-encoding", "UTF-8", "-d", str(OUT), str(Path(__file__).with_name("OraclePreflight.java"))], check=True)
     probe = subprocess.run([str(JAVA_HOME / "bin" / "java.exe"), "-cp", str(OUT) + os.pathsep + CLASSPATH, "OraclePreflight"], env=child_env, capture_output=True, text=True)
     if probe.returncode:
