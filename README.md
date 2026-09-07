@@ -57,6 +57,8 @@ Os bugs se bloqueavam entre si: a ausência de ID impedia testar aluguéis pela 
 
 Textos preparados com base no código corrigido. **Cada integrante deve revisar as respostas e expressar sua própria compreensão antes de entregar.**
 
+Conferidos com os PDFs fornecidos em `Downloads/java`: [relação entre as aulas e as correções](verificacao/CONFERENCIA_AULAS.md). A pasta contém as aulas 1–9, 11 e 12; não contém as aulas 10 e 13. As referências à Aula 13 abaixo seguem os temas e perguntas do checkpoint, sem afirmar que esse PDF foi consultado.
+
 ### 1. Injeção de dependência (Aula 13)
 
 `ConteudoController` recebe um `ConteudoRepository` pelo campo anotado com `@Autowired`.<br>
@@ -69,7 +71,7 @@ Isso é diferente de `ReciboAluguel`, uma classe simples sem dependências do Sp
 
 ### 2. JDBC vs Spring Data JPA (Aulas 12 e 13)
 
-No DAO com JDBC, precisamos obter a `Connection`, preparar o SQL, preencher parâmetros e ler o `ResultSet`.<br>
+No `ProdutoDAO` da Aula 12, precisamos obter a `Connection`, preparar o SQL com `?`, preencher parâmetros e ler o `ResultSet`.<br>
 Também precisamos transformar cada linha em objeto e fechar os recursos corretamente, por exemplo com `try-with-resources`.<br>
 Neste projeto, `ConteudoRepository` estende `JpaRepository`, que já oferece operações como `save`, `findById` e `findAll`.<br>
 O JPA/Hibernate cuida do mapeamento das entidades e da geração das operações de persistência; o Spring Data fornece a implementação do repository.<br>
@@ -81,7 +83,7 @@ JDBC continua útil quando precisamos controlar diretamente um SQL específico, 
 
 Uma classe que estende `Exception`, sem estender `RuntimeException`, é checked: o compilador exige capturar ou declarar sua propagação.<br>
 Por isso, a versão original de `Usuario.alugar` e de `AluguelController.alugar` declarava `throws ClassificacaoIndicativaException`.<br>
-Uma exceção unchecked pode propagar sem essa declaração, o que usamos para a violação de uma regra de aluguel.<br>
+Como `EstoqueInsuficienteException` da Aula 11, nossa exceção de negócio estende `RuntimeException` e pode propagar sem essa declaração.<br>
 Trocar a superclasse por `RuntimeException` não faz a mensagem aparecer automaticamente na resposta HTTP.<br>
 O passo decisivo foi acrescentar `@ExceptionHandler(ClassificacaoIndicativaException.class)` ao `GlobalExceptionHandler`.<br>
 Esse método retorna HTTP 422 com `erro` igual à mensagem que informa idade, título e classificação.<br>
@@ -99,7 +101,7 @@ O teste por uma referência do tipo `Conteudo` confirmou R$ 24,50 para cinco tem
 
 ### 5. Onde blindar o objeto? (Aulas 3, 4 e 13)
 
-A duração é validada em `Conteudo.setDuracaoMinutos`, e o construtor completo chama esse setter para reutilizar a mesma regra.<br>
+A duração é validada em `Conteudo.setDuracaoMinutos`, reutilizado pelo construtor, seguindo a proteção do estado ensinada nas Aulas 3 e 4.<br>
 Isso protege tanto a criação feita pelo controller quanto as alterações realizadas pelo setter durante o recebimento do JSON.<br>
 Créditos negativos ou não finitos são recusados em `Usuario.setCreditos`, também chamado pelo construtor.<br>
 `debitarCreditos` precisa verificar adicionalmente o valor solicitado e o saldo, porque validar o saldo inicial não impede um débito posterior inválido.<br>
@@ -148,6 +150,17 @@ No Eclipse, importe com **File → Import → Maven → Existing Maven Projects*
 
 Confira a mensagem `Started StreamFiapApplication` e repita os cenários descritos em [verificacao/ROTEIRO.md](verificacao/ROTEIRO.md), anotando os IDs realmente retornados. Não apague tabelas ou dados preexistentes do schema para tentar resolver uma incompatibilidade: primeiro identifique sua origem. A geração de ID foi validada no H2; a compatibilidade com a versão e as tabelas existentes do Oracle do grupo ainda precisa ser conferida.
 
+Também está preparado um modo de teste para Oracle, usando apenas as dependências existentes e a biblioteca padrão do Python. Na raiz do projeto, em um terminal interativo com Java 17 e Python 3:
+
+```powershell
+mvn -B clean verify dependency:build-classpath "-Dmdep.outputFile=target/classpath.txt"
+python verificacao/verificar.py all --jar --oracle --label oracle-final
+```
+
+O comando pede usuário e senha localmente, com a senha oculta. Primeiro executa uma inspeção JDBC somente de leitura: exige Oracle 12c ou superior e verifica as tabelas e os IDs automáticos. Se ambas as tabelas estiverem ausentes, permite sua criação pelo Hibernate; se ambas existirem com IDs `IDENTITY`, usa `validate`, sem modificar a estrutura. Schema parcial ou IDs incompatíveis interrompem a execução para revisão. A validação do Hibernate e os testes ainda podem revelar outras incompatibilidades.
+
+Os testes cadastram dados com prefixo único `CP4_...`, alugam somente conteúdos criados nessa execução e mantêm esses registros no Oracle. Reiniciam a API para conferir a persistência de conteúdos e usuários e a conservação dos conteúdos anteriores. Execute sem outra pessoa modificando o catálogo ao mesmo tempo. As evidências e os logs ficam em `target/verificacao`, ignorado pelo Git; revise-os antes de compartilhar. **Modo Oracle preparado, mas ainda não executado: a senha não estava disponível em 07/09/2026.** O teste automatizado não substitui a conferência do play no Eclipse.
+
 ## Validação realizada
 
 - Compilação e empacotamento Maven com Java 17: **BUILD SUCCESS**.
@@ -157,7 +170,7 @@ Confira a mensagem `Started StreamFiapApplication` e repita os cenários descrit
 - Execução final: **133 registros de evidência, nenhuma falha**. Registros incluem requisições, resultados e saídas dos testes; não equivalem a 133 testes independentes.
 - Os testes não dependem de JUnit nem alteram o `pom.xml`: Java e biblioteca padrão do Python. Por isso, `mvn test` isoladamente informa que não há testes; é necessário executar também o roteiro de verificação.
 
-Evidências: [estado original](verificacao/evidencias/original.json), [execução final](verificacao/evidencias/final.json) e [resumo por correção](verificacao/evidencias/por-correcao.json). Cada execução automatizada inicia e encerra seu próprio H2 em memória e não acessa o Oracle.
+Evidências: [estado original](verificacao/evidencias/original.json), [execução final](verificacao/evidencias/final.json) e [resumo por correção](verificacao/evidencias/por-correcao.json). Essas execuções documentadas utilizaram H2 em memória. O verificador continua usando H2 por padrão; somente a opção explícita `--oracle` acessa o Oracle com as credenciais digitadas localmente.
 
 ## Checklist de entrega
 
@@ -174,9 +187,11 @@ Revisão integral do PDF e nova execução em 07/09/2026: [relatório de confer�
 - [x] Definir o nome do grupo: OS-SDK.
 - [ ] Revisar as reflexões com as palavras e a compreensão do grupo.
 - [ ] Validar conexão, persistência e contrato no Oracle FIAP.
-- [ ] Conferir o play no Eclipse, sem erros de inicialização.
+- [ ] Instalar o Eclipse, importar como Maven e conferir o play sem erros de inicialização (o grupo informou que o Eclipse não está instalado neste computador).
 - [x] Publicar o projeto e o histórico no repositório **público** [Brunoxfx/cp4-bughunt-OS-SDK](https://github.com/Brunoxfx/cp4-bughunt-OS-SDK).
 - [x] Adequar o nome do repositório ao padrão `cp4-bughunt-<nome-do-grupo>` exigido no PDF.
 - [ ] Entregar o mesmo link no Teams para todos os integrantes.
 
 A publicação no GitHub foi realizada em 07/09/2026, com o histórico original de correções preservado. O repositório foi renomeado para `cp4-bughunt-OS-SDK`, seguindo o padrão do PDF e o nome do grupo. Oracle e Eclipse continuam pendentes: os testes realizados utilizaram Java/Maven e H2. Os itens desmarcados precisam ser concluídos antes da entrega acadêmica. O relatório de revisão registra a situação anterior à publicação.
+
+Após a conferência das aulas, a nova execução do JAR manteve **40 verificações do model e 13 grupos da API aprovados**, com 133 registros e nenhuma falha: [evidência da reconferência](verificacao/evidencias/conferencia-aulas-2026-09-07.json). O auxiliar Oracle compilou com Java 17; a recusa sem credenciais e o tratamento de terminal sem entrada foram testados, sem autenticar no banco.

@@ -1,0 +1,29 @@
+{
+  "fonte": "CHECKPOINT 4.pdf",
+  "paginas": 6,
+  "sha256": "bc0d91c37c39cebeb9bb48bb7b24eabf1446cf8d814b7858b6515dd0d37159ce",
+  "linhas_das_reflexoes": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+  ],
+  "commits_bug": 12,
+  "commits_clean": 6,
+  "pom_original": true,
+  "properties_original": true,
+  "compilacao": "Maven clean verify: BUILD SUCCESS, Java 17",
+  "model": 40,
+  "grupos_http": 13,
+  "registros": 133,
+  "falhas": 0,
+  "auxiliar_oracle": "Compilado; recusa sem credenciais e argumentos invalidos verificada. Banco nao autenticado.",
+  "pendencias": [
+    "Senha Oracle indisponivel, conforme informado pelo usuario",
+    "Eclipse nao instalado, conforme informado pelo usuario",
+    "Revisao pessoal das reflexoes pelo grupo",
+    "Link no Teams nao enviado"
+  ]
+}
