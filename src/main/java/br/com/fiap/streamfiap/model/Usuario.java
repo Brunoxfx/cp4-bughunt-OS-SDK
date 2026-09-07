@@ -37,7 +37,6 @@ public class Usuario {
         if (!temCreditosSuficientes(valor)) {
             throw new CreditosInsuficientesException("Créditos insuficientes para debitar " + valor);
         }
-        // adiciona o valor aos créditos do usuário
         setCreditos(this.creditos - valor);
     }
 
@@ -63,7 +62,6 @@ public class Usuario {
         return this;
     }
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
