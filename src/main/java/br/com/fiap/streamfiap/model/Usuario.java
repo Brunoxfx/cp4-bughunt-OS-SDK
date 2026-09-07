@@ -22,16 +22,22 @@ public class Usuario {
     public Usuario(String nome, int idade, double creditos) {
         this.nome = nome;
         this.idade = idade;
-        this.creditos = creditos;
+        setCreditos(creditos);
     }
 
     public boolean temCreditosSuficientes(double preco) {
-        return preco >= this.creditos;
+        return Double.isFinite(preco) && preco >= 0 && this.creditos >= preco;
     }
 
     public void debitarCreditos(double valor) {
+        if (!Double.isFinite(valor) || valor < 0) {
+            throw new IllegalArgumentException("O valor do débito deve ser finito e não negativo");
+        }
+        if (!temCreditosSuficientes(valor)) {
+            throw new CreditosInsuficientesException("Créditos insuficientes para debitar " + valor);
+        }
         // adiciona o valor aos créditos do usuário
-        this.creditos = this.creditos - valor;
+        setCreditos(this.creditos - valor);
     }
 
     public Usuario alugar(Conteudo c) {
@@ -73,5 +79,10 @@ public class Usuario {
     public void setIdade(int idade) { this.idade = idade; }
 
     public double getCreditos() { return creditos; }
-    public void setCreditos(double creditos) { this.creditos = creditos; }
+    public void setCreditos(double creditos) {
+        if (!Double.isFinite(creditos) || creditos < 0) {
+            throw new IllegalArgumentException("Os créditos devem ser finitos e não negativos");
+        }
+        this.creditos = creditos;
+    }
 }
