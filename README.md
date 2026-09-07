@@ -150,5 +150,5 @@ Evidências: [comportamento original](verificacao/evidencias/original.json), [va
 - [x] Repositório público com o nome `cp4-bughunt-OS-SDK`.
 - [x] Validação do contrato e da persistência no Oracle FIAP.
 - [x] Inicialização pelo Eclipse confirmada sem erros.
-- [ ] Revisão final das reflexões pelos integrantes.
+- [x] Revisão final das reflexões pelos integrantes.
 - [ ] Link do repositório entregue no Teams.
