@@ -191,7 +191,3 @@ Revisão integral do PDF e nova execução em 07/09/2026: [relatório de confer�
 - [x] Publicar o projeto e o histórico no repositório **público** [Brunoxfx/cp4-bughunt-OS-SDK](https://github.com/Brunoxfx/cp4-bughunt-OS-SDK).
 - [x] Adequar o nome do repositório ao padrão `cp4-bughunt-<nome-do-grupo>` exigido no PDF.
 - [ ] Entregar o mesmo link no Teams para todos os integrantes.
-
-A publicação no GitHub foi realizada em 07/09/2026, com o histórico original de correções preservado. O repositório foi renomeado para `cp4-bughunt-OS-SDK`, seguindo o padrão do PDF e o nome do grupo. Oracle e Eclipse continuam pendentes: os testes realizados utilizaram Java/Maven e H2. Os itens desmarcados precisam ser concluídos antes da entrega acadêmica. O relatório de revisão registra a situação anterior à publicação.
-
-Após a conferência das aulas, a nova execução do JAR manteve **40 verificações do model e 13 grupos da API aprovados**, com 133 registros e nenhuma falha: [evidência da reconferência](verificacao/evidencias/conferencia-aulas-2026-09-07.json). O auxiliar Oracle compilou com Java 17; a recusa sem credenciais e o tratamento de terminal sem entrada foram testados, sem autenticar no banco.
