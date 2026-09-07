@@ -1,5 +1,6 @@
 package br.com.fiap.streamfiap.controller;
 
+import br.com.fiap.streamfiap.apresentacao.ReciboAluguel;
 import br.com.fiap.streamfiap.exception.ConteudoNaoEncontradoException;
 import br.com.fiap.streamfiap.model.Conteudo;
 import br.com.fiap.streamfiap.model.Usuario;
@@ -30,6 +31,8 @@ public class AluguelController {
         Usuario usuarioAtualizado = usuario.alugar(conteudo);
 
         conteudoRepository.save(conteudo);
-        return ResponseEntity.ok(usuarioRepository.save(usuarioAtualizado));
+        Usuario usuarioSalvo = usuarioRepository.save(usuarioAtualizado);
+        new ReciboAluguel().imprimir(usuarioSalvo, conteudo, conteudo.calcularPrecoAluguel());
+        return ResponseEntity.ok(usuarioSalvo);
     }
 }

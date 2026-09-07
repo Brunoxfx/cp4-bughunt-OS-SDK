@@ -60,15 +60,6 @@ public class Usuario {
         debitarCreditos(precoAluguel);
         conteudo.setDisponivel(false);
 
-        System.out.println("==================================================");
-        System.out.println("RECIBO STREAMFIAP");
-        System.out.println("Usuario: " + this.nome);
-        System.out.println("Conteudo: " + conteudo.getTitulo());
-        System.out.println("Valor pago: R$ " + precoAluguel);
-        System.out.println("Creditos restantes: R$ " + this.creditos);
-        System.out.println("Obrigado por usar o StreamFIAP!");
-        System.out.println("==================================================");
-
         return this;
     }
 
