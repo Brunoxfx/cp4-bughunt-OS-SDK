@@ -1,0 +1,118 @@
+[
+  {
+    "metodo": "GET",
+    "rota": "/api/conteudos",
+    "entrada": null,
+    "status": 200,
+    "resposta": []
+  },
+  {
+    "metodo": "POST",
+    "rota": "/api/conteudos/filme",
+    "entrada": {
+      "titulo": "Matrix",
+      "categoria": "FICCAO",
+      "duracaoMinutos": -1,
+      "classificacaoEtaria": 14,
+      "disponivel": true,
+      "estreia": true
+    },
+    "status": 201,
+    "resposta": {
+      "titulo": "Matrix",
+      "categoria": "FICCAO",
+      "duracaoMinutos": 136,
+      "classificacaoEtaria": 14,
+      "disponivel": true,
+      "estreia": true,
+      "id": 1
+    }
+  },
+  {
+    "metodo": "GET",
+    "rota": "/api/conteudos/1/preco-promocional",
+    "entrada": null,
+    "status": 200,
+    "resposta": 11.920000000000002
+  },
+  {
+    "metodo": "POST",
+    "rota": "/api/usuarios",
+    "entrada": {
+      "nome": "Revisao curl",
+      "idade": 20,
+      "creditos": 100
+    },
+    "status": 201,
+    "resposta": {
+      "nome": "Revisao curl",
+      "idade": 20,
+      "creditos": 100.0,
+      "id": 1
+    }
+  },
+  {
+    "metodo": "POST",
+    "rota": "/api/alugueis?usuarioId=1&conteudoId=1",
+    "entrada": null,
+    "status": 200,
+    "resposta": {
+      "nome": "Revisao curl",
+      "idade": 20,
+      "creditos": 85.1,
+      "id": 1
+    }
+  },
+  {
+    "metodo": "GET",
+    "rota": "/api/usuarios/1",
+    "entrada": null,
+    "status": 200,
+    "resposta": {
+      "nome": "Revisao curl",
+      "idade": 20,
+      "creditos": 85.1,
+      "id": 1
+    }
+  },
+  {
+    "metodo": "GET",
+    "rota": "/api/conteudos/1",
+    "entrada": null,
+    "status": 200,
+    "resposta": {
+      "titulo": "Matrix",
+      "categoria": "FICCAO",
+      "duracaoMinutos": 136,
+      "classificacaoEtaria": 14,
+      "disponivel": false,
+      "estreia": true,
+      "id": 1
+    }
+  },
+  {
+    "metodo": "POST",
+    "rota": "/api/conteudos/filme",
+    "entrada": {
+      "titulo": "Matrix",
+      "categoria": "FICCAO",
+      "duracaoMinutos": -1,
+      "classificacaoEtaria": 14,
+      "disponivel": true,
+      "estreia": true
+    },
+    "status": 400,
+    "resposta": {
+      "erro": "A duração em minutos deve ser maior que zero"
+    }
+  },
+  {
+    "metodo": "GET",
+    "rota": "/api/conteudos/999",
+    "entrada": null,
+    "status": 404,
+    "resposta": {
+      "erro": "Conteúdo não encontrado: 999"
+    }
+  }
+]

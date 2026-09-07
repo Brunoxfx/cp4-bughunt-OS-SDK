@@ -160,6 +160,8 @@ Evidências: [estado original](verificacao/evidencias/original.json), [execuçã
 
 ## Checklist de entrega
 
+Revisão integral do PDF e nova execução em 07/09/2026: [relatório de conferência](verificacao/REVISAO_CHECKPOINT4.md). O relatório distingue os testes locais aprovados das pendências externas.
+
 - [x] Primeiro commit preserva o estado original recebido.
 - [x] Doze commits `fix: bugNN`, um por correção.
 - [x] Seis commits `refactor: cleanNN`, um por ajuste.
