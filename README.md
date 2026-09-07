@@ -10,12 +10,11 @@ Repositório público: [Brunoxfx/CP4-POO](https://github.com/Brunoxfx/CP4-POO).
 
 | Integrante | RM | Turma |
 |---|---|---|
-| A preencher | A preencher | A preencher |
-| A preencher | A preencher | A preencher |
-| A preencher | A preencher | A preencher |
-| A preencher | A preencher | A preencher |
-
-Remover linhas não utilizadas e preencher a identificação antes da entrega. Os dados foram deixados pendentes por escolha do solicitante; não foram inventados.
+| Bruno Anselmo da Silva | 566521 | 2CCPG |
+| Fernando de Almeida Godoi | 564820 | 2CCPG |
+| Gabriel Ber Soares | 563520 | 2CCPG |
+| Guilherme de Freitas Salgado | 562494 | 2CCPG |
+| Vinicius Ribeiro Dias | 566468 | 2CCPG |
 
 | Campo | Resultado |
 |---|---|
@@ -171,7 +170,8 @@ Revisão integral do PDF e nova execução em 07/09/2026: [relatório de confer�
 - [x] `application.properties` versionado mantém `SEU_RM` e `SUA_SENHA`.
 - [x] Tabelas dos achados e seis respostas de reflexão preenchidas.
 - [x] Compilação, empacotamento e contrato testados com H2.
-- [ ] Preencher nome do grupo, integrantes, RMs e turmas.
+- [x] Preencher integrantes, RMs e turma.
+- [ ] Definir o nome do grupo.
 - [ ] Revisar as reflexões com as palavras e a compreensão do grupo.
 - [ ] Validar conexão, persistência e contrato no Oracle FIAP.
 - [ ] Conferir o play no Eclipse, sem erros de inicialização.
