@@ -1,0 +1,347 @@
+[
+  {
+    "etapa": "bug01",
+    "resultados": [
+      {
+        "caso": "bug01 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug02",
+    "resultados": [
+      {
+        "caso": "bug02 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug03",
+    "resultados": [
+      {
+        "caso": "bug03 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug03 API resultado",
+        "status": "PENDENTE NESTA ETAPA",
+        "resposta": "Validado via HTTP na etapa bug09 e novamente na execucao final."
+      }
+    ]
+  },
+  {
+    "etapa": "bug04",
+    "resultados": [
+      {
+        "caso": "bug04 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug04 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug05",
+    "resultados": [
+      {
+        "caso": "bug05 model",
+        "status": 0,
+        "resposta": "MODEL OK: 3 verificacoes\n"
+      },
+      {
+        "caso": "bug05 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug06",
+    "resultados": [
+      {
+        "caso": "bug06 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug06 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug07",
+    "resultados": [
+      {
+        "caso": "bug04 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug07 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug04 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug08",
+    "resultados": [
+      {
+        "caso": "bug08 model",
+        "status": 0,
+        "resposta": "MODEL OK: 4 verificacoes\n"
+      },
+      {
+        "caso": "bug08 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug09",
+    "resultados": [
+      {
+        "caso": "bug03 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug09 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug03 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug10",
+    "resultados": [
+      {
+        "caso": "bug10 model",
+        "status": 0,
+        "resposta": "MODEL OK: 1 verificacoes\n"
+      },
+      {
+        "caso": "bug10 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug11",
+    "resultados": [
+      {
+        "caso": "bug11 model",
+        "status": 0,
+        "resposta": "MODEL OK: 14 verificacoes\n"
+      },
+      {
+        "caso": "bug11 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "bug12",
+    "resultados": [
+      {
+        "caso": "bug12 model",
+        "status": 0,
+        "resposta": "MODEL OK: 3 verificacoes\n"
+      },
+      {
+        "caso": "bug12 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "clean01",
+    "resultados": [
+      {
+        "caso": "bug11 model",
+        "status": 0,
+        "resposta": "MODEL OK: 14 verificacoes\n"
+      },
+      {
+        "caso": "bug12 model",
+        "status": 0,
+        "resposta": "MODEL OK: 3 verificacoes\n"
+      },
+      {
+        "caso": "bug11 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug12 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "clean02",
+    "resultados": [
+      {
+        "caso": "bug04 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug04 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug07 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "clean03",
+    "resultados": [
+      {
+        "caso": "bug05 model",
+        "status": 0,
+        "resposta": "MODEL OK: 3 verificacoes\n"
+      },
+      {
+        "caso": "bug06 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug08 model",
+        "status": 0,
+        "resposta": "MODEL OK: 4 verificacoes\n"
+      },
+      {
+        "caso": "bug05 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug06 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug08 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "clean04",
+    "resultados": [
+      {
+        "caso": "bug03 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug11 model",
+        "status": 0,
+        "resposta": "MODEL OK: 14 verificacoes\n"
+      },
+      {
+        "caso": "bug12 model",
+        "status": 0,
+        "resposta": "MODEL OK: 3 verificacoes\n"
+      },
+      {
+        "caso": "bug09 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug03 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug11 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug12 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "clean05",
+    "resultados": [
+      {
+        "caso": "bug05 model",
+        "status": 0,
+        "resposta": "MODEL OK: 3 verificacoes\n"
+      },
+      {
+        "caso": "bug06 model",
+        "status": 0,
+        "resposta": "MODEL OK: 5 verificacoes\n"
+      },
+      {
+        "caso": "bug08 model",
+        "status": 0,
+        "resposta": "MODEL OK: 4 verificacoes\n"
+      },
+      {
+        "caso": "bug05 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug06 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      },
+      {
+        "caso": "bug08 API resultado",
+        "status": "OK",
+        "resposta": "Cenario verificado"
+      }
+    ]
+  },
+  {
+    "etapa": "clean06",
+    "resultados": [
+      {
+        "caso": "Revisao do diff",
+        "status": "OK",
+        "resposta": "Somente cinco linhas de comentarios removidas; git diff --check passou. Suite completa executada no JAR final."
+      }
+    ]
+  }
+]
