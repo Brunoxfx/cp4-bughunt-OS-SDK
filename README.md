@@ -134,3 +134,19 @@ A compilação e o empacotamento foram concluídos com Java 17 e Maven. O JAR fo
 Os registros incluem requisições, respostas e resultados de testes; não correspondem a 133 testes independentes. As evidências abrangem o ambiente H2, sem validação autenticada no Oracle FIAP ou confirmação de execução pelo Eclipse.
 
 Evidências: [comportamento original](verificacao/evidencias/original.json), [validação após as correções](verificacao/evidencias/conferencia-aulas-2026-09-07.json) e [resultados por correção](verificacao/evidencias/por-correcao.json).
+
+## Checklist de entrega
+
+- [x] Integrantes, RMs, turma e nome do grupo identificados.
+- [x] Estado original do projeto preservado no primeiro commit.
+- [x] Doze bugs corrigidos e documentados, com um commit por correção.
+- [x] Seis ajustes de Clean Code documentados, com commits individuais.
+- [x] Seis respostas de reflexão incluídas.
+- [x] Estrutura do projeto, endpoints e dependências originais preservados.
+- [x] Arquivo de configuração versionado com `SEU_RM` e `SUA_SENHA`, sem credenciais reais.
+- [x] Compilação, empacotamento e testes do contrato aprovados com H2.
+- [x] Repositório público com o nome `cp4-bughunt-OS-SDK`.
+- [ ] Validação do contrato e da persistência no Oracle FIAP.
+- [ ] Inicialização pelo Eclipse confirmada sem erros.
+- [ ] Revisão final das reflexões pelos integrantes.
+- [ ] Link do repositório entregue no Teams.
