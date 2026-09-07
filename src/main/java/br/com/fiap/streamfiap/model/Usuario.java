@@ -33,7 +33,7 @@ public class Usuario {
         this.creditos = this.creditos - valor;
     }
 
-    public Usuario alugar(Conteudo c) throws ClassificacaoIndicativaException {
+    public Usuario alugar(Conteudo c) {
         if (this.idade < c.getClassificacaoEtaria()) {
             throw new ClassificacaoIndicativaException("Usuário de " + this.idade
                     + " anos não pode assistir a " + c.getTitulo()
