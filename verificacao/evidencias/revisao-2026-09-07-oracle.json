@@ -1,6 +1,0 @@
-{
-  "servidor": "oracle.fiap.com.br",
-  "porta": 1521,
-  "tcp": "acessivel",
-  "credenciais_no_ambiente_do_processo": false
-}

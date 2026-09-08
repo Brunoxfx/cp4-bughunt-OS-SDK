@@ -17,3 +17,9 @@ out/
 
 ### OS ###
 .DS_Store
+
+### Materiais auxiliares locais ###
+/verificacao/
+__pycache__/
+*.pyc
+*.log

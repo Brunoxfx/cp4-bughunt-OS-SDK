@@ -115,40 +115,19 @@ Se a regra do negócio mudasse, acrescentaríamos `implements Promocionavel` e o
 `Conteudo.calcularPrecoPromocional` já consulta essa capacidade com `instanceof`, então não exigiria um novo caso específico, nem mudança no endpoint.<br>
 Enquanto o preço normal do documentário continuar zero, qualquer desconto continuará resultando em zero; uma cobrança nova exigiria também alterar explicitamente seu cálculo de aluguel.
 
-## Parte 4 — Considerações sobre as correções
+## Parte 4 — Considerações finais
 
 A principal dificuldade foi distinguir bugs de suas consequências: a falha de geração do ID bloqueava a API de aluguel, e a comparação de créditos escondia outros erros. Os testes foram repetidos após corrigir essas dependências. Foram preservados os preços normais no aluguel e o endpoint separado de promoção, sem criar regras específicas para títulos dos exemplos.
 
-## Resultados da validação
+## Como executar
 
-A compilação e o empacotamento foram concluídos com Java 17 e Maven. O contrato foi validado com H2 e Oracle FIAP, mantendo o `pom.xml` e as dependências originais. A aplicação também foi iniciada pelo Eclipse com Java 17 e conexão ao Oracle.
+Requisito: JDK 17 ou superior.
 
-| Verificação | Resultado |
-|---|---|
-| Compilação e empacotamento | BUILD SUCCESS |
-| Inicialização do JAR com H2 | Aprovada |
-| Testes diretos do model | 40 verificações aprovadas |
-| Cenários HTTP da API | 13 grupos aprovados em H2 e em Oracle |
-| Persistência no Oracle após reiniciar a API | 24 conteúdos e 15 usuários conferidos |
-| Inicialização pelo Eclipse com Oracle | Aprovada, sem erros de inicialização |
-| Registros das execuções | H2: 133; Oracle: 166; nenhuma falha |
+1. No Eclipse, acesse **File → Import → Maven → Existing Maven Projects** e selecione a pasta que contém o `pom.xml`.
+2. Configure o Oracle FIAP em `src/main/resources/application.properties`, substituindo `SEU_RM` e `SUA_SENHA` apenas na sua cópia local. O arquivo enviado ao GitHub deve manter esses placeholders.
+3. Execute `StreamFiapApplication` como aplicação Java e aguarde a mensagem `Started StreamFiapApplication`.
+4. Acesse a API em `http://localhost:8080`. Use o navegador para GETs e Postman, Insomnia ou curl para POSTs, com `Content-Type: application/json`.
 
-Os registros incluem requisições, respostas e resultados de testes; não representam a quantidade de testes independentes. As tabelas foram criadas no Oracle e os dados permaneceram consistentes após reiniciar a API e após a execução pelo Eclipse.
+Para conferir o contrato, cadastre um filme de estreia, uma série com cinco temporadas e um documentário. Confira os preços promocionais pelo endpoint `GET /api/conteudos/{id}/preco-promocional`: R$ 11,92, R$ 19,60 e R$ 0,00, respectivamente. O preço normal é conferido pelo débito no aluguel.
 
-Evidências: [comportamento original](verificacao/evidencias/original.json), [validação com H2](verificacao/evidencias/conferencia-aulas-2026-09-07.json), [validação com Oracle](verificacao/evidencias/oracle-final.json), [execução pelo Eclipse](verificacao/evidencias/eclipse-oracle-final.json) e [resultados por correção](verificacao/evidencias/por-correcao.json).
-
-## Checklist de entrega
-
-- [x] Integrantes, RMs, turma e nome do grupo identificados.
-- [x] Estado original do projeto preservado no primeiro commit.
-- [x] Doze bugs corrigidos e documentados, com um commit por correção.
-- [x] Seis ajustes de Clean Code documentados, com commits individuais.
-- [x] Seis respostas de reflexão incluídas.
-- [x] Estrutura do projeto, endpoints e dependências originais preservados.
-- [x] Arquivo de configuração versionado com `SEU_RM` e `SUA_SENHA`, sem credenciais reais.
-- [x] Compilação, empacotamento e testes do contrato aprovados com H2.
-- [x] Repositório público com o nome `cp4-bughunt-OS-SDK`.
-- [x] Validação do contrato e da persistência no Oracle FIAP.
-- [x] Inicialização pelo Eclipse confirmada sem erros.
-- [x] Revisão final das reflexões pelos integrantes.
-- [ ] Link do repositório entregue no Teams.
+Cadastre usuários com saldo suficiente, sem saldo e com idade inferior à classificação do conteúdo. Teste os aluguéis por `POST /api/alugueis?usuarioId=X&conteudoId=Y`, usando os IDs retornados nos cadastros. Confira também duração inválida, conteúdo indisponível, busca por categoria e conteúdo inexistente. Consulte os GETs de usuário e conteúdo para verificar os dados persistidos e o saldo após cada tentativa.
